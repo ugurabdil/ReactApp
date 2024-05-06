@@ -1,10 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import {selectselectComments} from 'c'
-function commentsList() {
-  return (
-    <div>commentsList</div>
-  )
-}
+// src/features/comments/CommentList.js
 
-export default commentsList
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+const CommentList = () => {
+  const comments = useSelector((state) => state.comments)||[];
+
+  return (
+    <div>
+      <h2>Yorumlar</h2>
+      <ul>
+        {comments.map((comment, index) => (
+          <li key={index}>{comment}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default CommentList;

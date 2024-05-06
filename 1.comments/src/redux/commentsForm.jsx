@@ -1,23 +1,29 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { addComments } from './commentSlice';
-import { formatProdErrorMessage } from '@reduxjs/toolkit';
+
 
 const CommentForm=()=>{
-    const[text, setText]=useState('');
+    const[Comment, setComment]=useState('');
     const dispatch=useDispatch();
 
-    const handleSubmit=(e)=>{
-        dispatch(addComments(text));
-        setText('');
+    const handleSubmit=()=>{
+        dispatch(addComments(Comment));
+        setComment('');
     }
-}
-return(
+
+return (
     <form onSubmit={handleSubmit}>
-    <input placeholder='Yorum ekleyin...' type="text" value={text} onChange={(e)=>setText(e.target.value)}/>
-    <button type="submit">Add Comment</button>
-</form>
-)
+      <input
+        type="text"
+        value={Comment}
+        onChange={(e) => setComment(e.target.value)}
+        placeholder="Yorumunuzu buraya yazın"
+      />
+      <button type="submit">Yorum Ekle</button>
+    </form>
+  );
+};
 
 export default CommentForm;
 

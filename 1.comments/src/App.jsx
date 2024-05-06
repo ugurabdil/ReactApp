@@ -1,19 +1,16 @@
-import { useState } from 'react'
+// src/App.js
 
-import './App.css'
-import ComCreate from './components/ComCreate'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import CommentForm from './redux/commentsForm';
+import CommentList from './redux/commentsList';
 
 function App() {
-
   return (
-   <div className='App'>
-    <div className='app-com-create' >
-    <ComCreate></ComCreate>
+    <div className="App">
+      <CommentForm />
+      <CommentList />
     </div>
-    
-   </div>
-  )
+  );
 }
 
-export default App
+export default App;
